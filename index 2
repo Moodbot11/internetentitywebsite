@@ -2,19 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hero Section with Video</title>
     <style>
-        html, body {
+        body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            overflow-x: hidden;
         }
         .hero {
             height: 100vh;
-            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,13 +22,11 @@
             overflow: hidden;
         }
         .hero-content {
-            max-width: 80%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
         }
         .hero h1 {
             font-size: 3em;
@@ -41,7 +37,7 @@
             margin-bottom: 1em;
         }
         .hero button {
-            background: linear-gradient(145deg, #FFD700, #FFC700);
+            background: linear-gradient(145deg, #FFD700, #FFC700); /* Metallic gold */
             border: 2px solid #DAA520;
             color: black;
             padding: 10px 20px;
@@ -51,7 +47,7 @@
             transition: background 0.3s ease;
         }
         .hero button:hover {
-            background: linear-gradient(145deg, #C0C0C0, #A9A9A9);
+            background: linear-gradient(145deg, #C0C0C0, #A9A9A9); /* Metallic silver on hover */
             border: 2px solid #808080;
         }
         .background-slide {
@@ -69,28 +65,40 @@
         .background-slide.active {
             opacity: 1;
         }
+        #videoModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+        }
+        #videoModal video {
+            width: 80%;
+            height: auto;
+        }
+        #videoModal .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+        }
         #app {
             padding: 20px;
+            background-color: #f4f4f4;
             text-align: center;
-            width: 100%;
-            background: linear-gradient(145deg, #C0C0C0, #A9A9A9);
-            position: relative;
-        }
-        #inner-app-box {
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            width: 80%;
         }
         #btn-container {
             margin-bottom: 20px;
         }
         #btn-container button {
-            background-color: #FFD700;
+            background-color: #FFD700; /* Gold */
             border: none;
             padding: 10px 20px;
             margin-right: 10px;
@@ -99,11 +107,14 @@
             transition: background 0.3s ease;
         }
         #btn-container button#stop-btn {
-            background-color: #C0C0C0;
+            background-color: #C0C0C0; /* Silver for stop button */
         }
         #chat {
             margin-top: 20px;
-            color: white;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -120,21 +131,27 @@
         </div>
     </div>
 
+    <div id="videoModal" class="flex">
+        <span class="close" onclick="closeVideo()">&times;</span>
+        <video controls>
+            <source src="your-video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <div id="app">
-        <div id="inner-app-box">
-            <div id="btn-container">
-                <button id="start-btn" onclick="startBot()">Start</button>
-                <button id="stop-btn" onclick="stopBot()" disabled="true">Stop</button>
-            </div>
-            <div id="heading-container">
-                <h2>Empathic Voice Interface (EVI)</h2>
-                <p>
-                    Welcome to our TypeScript sample implementation of the Empathic Voice Interface!
-                    Click the "Start" button and begin talking to interact with EVI.
-                </p>
-            </div>
-            <div id="chat"></div>
+        <div id="btn-container">
+            <button id="start-btn">Start</button>
+            <button id="stop-btn" disabled="true">Stop</button>
         </div>
+        <div id="heading-container">
+            <h2>Empathic Voice Interface (EVI)</h2>
+            <p>
+                Welcome to our TypeScript sample implementation of the Empathic Voice Interface!
+                Click the "Start" button and begin talking to interact with EVI.
+            </p>
+        </div>
+        <div id="chat"></div>
     </div>
 
     <script>
@@ -147,25 +164,16 @@
             slides[currentSlide].classList.add('active');
         }
 
-        setInterval(changeSlide, 5000);
+        setInterval(changeSlide, 5000); // Change image every 5 seconds
 
         function showVideo() {
-            alert("Video Placeholder"); // Placeholder for the actual video logic
+            document.getElementById('videoModal').style.display = 'flex';
         }
 
-        function startBot() {
-            document.getElementById('start-btn').disabled = true;
-            document.getElementById('stop-btn').disabled = false;
-            // Insert original bot logic here
-            console.log("Bot started");
-        }
-
-        function stopBot() {
-            document.getElementById('start-btn').disabled = false;
-            document.getElementById('stop-btn').disabled = true;
-            // Insert logic to stop the bot
-            console.log("Bot stopped");
+        function closeVideo() {
+            document.getElementById('videoModal').style.display = 'none';
         }
     </script>
+    <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
