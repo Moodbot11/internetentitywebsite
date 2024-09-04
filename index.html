@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Hero Section with Video</title>
-    <script type="module" crossorigin src="/assets/index-VhH4bk9m.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CHmWr8d2.css">
     <style>
         /* Existing styles */
         html, body {
@@ -128,11 +126,12 @@
         }
         #btn-container button#stop-btn {
             background-color: #C0C0C0;
-       // }
+        }
         #chat {
             margin-top: 20px;
             color: white;
         }
+        <style>
     /* Style for the third component */
     #third-component {
         width: 100%;
@@ -177,7 +176,17 @@
     html, body {
     background: #0a0b0f; /* Change background to black */
 }
-</style> 
+
+/* Update existing styles */
+.hero {
+    background-color: #0a0b0f;
+}
+
+#app {
+    background-color: #0a0b0f;
+}
+</style> Bobby
+    </style>
 </head>
 <body>
     <!-- Existing HTML structure -->
@@ -200,19 +209,21 @@
         </video>
     </div>
 
-   <div id="app">
-      <div id="btn-container">
-        <button id="start-btn">Start</button>
-        <button id="stop-btn" disabled="true">Stop</button>
-      </div>
-      <div id="heading-container">
-        <h2>Empathic Voice Interface (EVI)</h2>
-        <p>
-          Welcome to our TypeScript sample implementation of the Empathic Voice Interface!
-          Click the "Start" button and begin talking to interact with EVI.
-        </p>
-      </div>
-      <div id="chat"></div>
+    <div id="app">
+        <div id="inner-app-box">
+            <div id="btn-container">
+                <button id="start-btn">Start</button>
+                <button id="stop-btn" disabled="true">Stop</button>
+            </div>
+            <div id="heading-container">
+                <h2>Empathic Voice Interface (EVI)</h2>
+                <p>
+                    Welcome to our TypeScript sample implementation of the Empathic Voice Interface!
+                    Click the "Start" button and begin talking to interact with EVI.
+                </p>
+            </div>
+            <div id="chat"></div>
+        </div>
     </div>
 
     <script>
@@ -434,5 +445,13 @@
         </ul>
     </div>
 </div>
+
+
+
+
+
+
+
+
 </body>
 </html>
