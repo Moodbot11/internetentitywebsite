@@ -1,0 +1,61 @@
+  
+
+/* modified-styles.css */
+
+/* Chat box styles */
+
+.chat-box {
+  background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  padding: 10px;
+  width: 80%; /* Adjust the width to your liking */
+  margin-bottom: 10px; /* Add some space between chat boxes */
+  animation: fade-in 0.5s; /* Fade-in animation */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Answer styles */
+
+.answer {
+  background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  padding: 10px;
+  width: 80%; /* Adjust the width to your liking */
+  margin-bottom: 10px; /* Add some space between answers */
+  animation: fade-in 0.5s; /* Fade-in animation */
+}
+
+/* Glass blur effect */
+
+.glass-blur {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)); /* White with 80% opacity */
+  background-size: 100% 100%;
+  background-position: 0 0;
+  filter: blur(10px); /* Blur effect */
+}
+
+/* Disappear after a few minutes */
+
+.disappear {
+  animation: fade-out 2s; /* Fade-out animation */
+  animation-delay: 120s; /* Wait for 2 minutes before disappearing */
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
