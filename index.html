@@ -6,10 +6,47 @@
     <title>Empathic Voice Interface</title>
     <script type="module" crossorigin src="/assets/index-VhH4bk9m.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CHmWr8d2.css">
-    <link rel="stylesheet" crossorigin href="/assets/modified-styles.css">
-  </head>
+    <link rel="stylesheet" crossorigin href="/src//styles.css">
   </head>
   <body>
+<div class="hero">
+        <div class="background-slide active" style="background-image: url('https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="background-slide" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="background-slide" style="background-image: url('https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8&auto=format&fit=crop&w=2070&q=80');"></div>
+        <div class="hero-content">
+            <h1>Welcome to Emotion AI</h1>
+            <p>Experience AI that feels.</p>
+            <button onclick="showVideo()">Watch Video</button>
+        </div>
+    </div>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.background-slide');
+
+        function changeSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(changeSlide, 5000);
+
+        function showVideo() {
+            document.getElementById('videoModal').style.display = 'flex';
+        }
+
+        function closeVideo() {
+            document.getElementById('videoModal').style.display = 'none';
+        }
+    </script>
+
+    <div id="videoModal" class="flex">
+        <span class="close" onclick="closeVideo()">&times;</span>
+        <video controls>
+            <source src="your-video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
     <div id="app">
       <div id="btn-container">
         <button id="start-btn">Start</button>
@@ -24,5 +61,206 @@
       </div>
       <div id="chat"></div>
     </div>
+
+
+<!-- Insert the third component here -->
+<div id="third-component">
+    <div class="counter-section">
+        <!-- Counter 1 -->
+        <div class="counter">
+            <i class="fas fa-lightbulb icon"></i>
+            <div class="counter-value" id="counter1">0</div>
+            <p>Innovative Solutions Delivered</p>
+        </div>
+        <!-- Counter 2 -->
+        <div class="counter">
+            <i class="fas fa-chart-line icon"></i>
+            <div class="counter-value" id="counter2">0</div>
+            <p>Growth in Artificial Talent</p>
+        </div>
+        <!-- Counter 3 -->
+        <div class="counter">
+            <i class="fas fa-stopwatch icon"></i>
+            <div class="counter-value" id="counter3">0</div>
+            <p>Increased Operational Efficiency</p>
+        </div>
+        <!-- Counter 4 -->
+        <div class="counter">
+            <i class="fas fa-comments icon"></i>
+            <div class="counter-value" id="counter4">0</div>
+            <p>Enhanced Customer Engagement</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    #third-component {
+        width: 100%;
+        padding: 20px;
+           background-color: #0a0b0f; /* Set to black */
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .counter-section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .counter {
+        flex: 1;
+        margin: 10px;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 20px 5px rgba(147, 112, 219, 0.8);
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+
+    .icon {
+        font-size: 50px;
+        color: #4a4a4a;
+        margin-bottom: 10px;
+    }
+
+    .counter-value {
+        font-size: 2em;
+        color: #4a4a4a;
+    }
+
+    .counter p {
+        margin-top: 5px;
+        color: #7a7a7a;
+    }
+
+    .counter:hover {
+        transform: scale(1.05);
+    }
+    .component-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: #0a0b0f;
+    color: #fff;
+}
+
+.info-box {
+    background-color: #0a0b0f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.info-button {
+    background-color: #1a25ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info-heading {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.info-subtext, .info-text {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    margin: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.info-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #1a25ff;
+}
+
+.highlight {
+    color: #4a4aff;
+}
+
+.highlight-box {
+    background-color: #fff;
+    color: #0a0b0f;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+</style>
+
+<script>
+    // Define stopping points for each counter
+    const stoppingPoints = [44, 2160, 3240, 6480];
+
+    function incrementCounters() {
+        document.querySelectorAll('.counter-value').forEach((counter, index) => {
+            let currentValue = parseInt(counter.textContent);
+            // Check if current value is less than the stopping point
+            if (currentValue < stoppingPoints[index]) {
+                counter.textContent = currentValue + Math.floor(Math.random() * 5);
+            }
+        });
+    }
+
+    setInterval(incrementCounters, 1000); // Increment every second
+</script>
+
+
+<div class="component-container">
+    <div class="info-box">
+        <button class="info-button">Secret #1</button>
+        <p class="info-text">Businesses Are Starting To Shift To AI-Tech, Look:</p>
+        <h2 class="info-heading">The future is calling: AI-driven renaissance in telecom</h2>
+        <p class="info-subtext">You can now place DoorDash and Uber Eats orders through a call with an AI voice bot.</p>
+    </div>
+    <div class="info-box">
+        <button class="info-button">Secret #2</button>
+        <p class="info-text">Imagine Automating 100% of your Inbound & Outbound Calls with human-like precision.</p>
+        <h2 class="info-heading">AI can automate all your <span class="highlight">inbound & outbound</span> Phone calls</h2>
+        <p class="info-subtext">Ensuring <span class="highlight-box">no call is missed</span> and every interaction is optimized.</p>
+    </div>
+    <div class="info-box">
+        <button class="info-button">Secret #3</button>
+        <h2 class="info-heading">The Solution: AI handles hundreds of calls per minute with human-like precision.</h2>
+        <ul class="info-list">
+            <li>Automate ALL Call Handling</li>
+            <li>Reduce Operational Costs by 87%</li>
+            <li>Increase Sales by 95%</li>
+            <li>Increase customer satisfaction by 67%</li>
+        </ul>
+    </div>
+    <div class="info-box">
+        <button class="info-button">Secret #4</button>
+        <h2 class="info-heading">AI Calls In Action: Handling Complex Customer Interaction Day & Night Seamlessly</h2>
+        <ul class="info-list">
+            <li>AI understands and responds to customer queries accurately.</li>
+            <li>Handles multiple calls simultaneously without placing calls on hold.</li>
+            <li>Consistent performance 24/7</li>
+            <li>Revoicer Increased their revenue by 30% within three months of using AI Calls</li>
+        </ul>
+    </div>
+</div>
+
+
   </body>
 </html>
